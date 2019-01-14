@@ -42,8 +42,8 @@ a.width-80{
 div.scroll{
 	border-radius: 25px;
 	margin-top:2%;
-	height: 90%;
-	overflow-y: scroll;
+	/*height: 90%;*/
+	overflow-y: auto;
 }
 
 p.justified{
@@ -83,12 +83,10 @@ div.data{
 }
 
 div#collapseAll, div#expandAll{
-	font-size:2em;
+	font-size:1em;
 	text-align: center;
 }
 
-div#collapseAll:hover, div#expandAll:hover, .collapseExpand:hover{
+.btnCustom:hover{
 	cursor: pointer;
-	background-color: #699bd4;
 }
-
