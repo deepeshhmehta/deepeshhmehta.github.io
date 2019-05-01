@@ -9,104 +9,63 @@ $(document).ready(function(){
 		alert("Review: " + review + "\nName: " + name + "\nEmail: " + email + "\nFile: " +fileupload);
 	}
 
-	expandAllClicked();
-	// var pp = Math.round(Math.random() * 100)
-	// if(pp%2 ==0){
-		$("img").attr("src","./assets/ProfilePic.jpg");
-	// }else{
-	// 	$("img").attr("src","ProfilePic2.jpg");
-	// }
+	expandXClicked("work");
 
 	$(".switch").click(function(){
 		var id = $(this).attr('id');
-		console.log(id);
 		switch(id){
 			case "workToggle": {
-				$("#workDetails").slideToggle("slow");
-				$(this).find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
-				$(this).find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
+				toggleXClicked("work");
 				break;
 			}
 			case "skillsToggle": {
-				$("#skillsDetails").slideToggle("slow");
-				$(this).find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
-				$(this).find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
+				toggleXClicked("skills");
 				break;
 			}
 			case "educationToggle": {
-				$("#educationDetails").slideToggle("slow");
-				$(this).find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
-				$(this).find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
-				break;
-			}
-			case "strengthToggle": {
-				$("#strengthDetails").slideToggle("slow");
-				$(this).find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
-				$(this).find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
-				break;
-			}
-			case "mediaToggle": {
-				$("#mediaDetails").slideToggle("slow");
-				$(this).find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
-				$(this).find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
+				toggleXClicked("education");
 				break;
 			}
 		}
 		
-	})
-	
-
-
-
-
-	$("#collapseAll").click(function(){
-		$("#workDetails").slideUp("slow");
-		$("#workToggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#workToggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#skillsDetails").slideUp("slow");
-		$("#skillsToggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#skillsToggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#educationDetails").slideUp("slow");
-		$("#educationToggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#educationToggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#strengthDetails").slideUp("slow");
-		$("#strengthToggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#strengthToggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
-
-
-		$("#mediaDetails").slideUp("slow");
-		$("#mediaToggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#mediaToggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
-
 	})
 
 	$("#expandAll").click(function(){
 		expandAllClicked();
 	})
 
+	$("#collapseAll").click(function(){
+		collapseAllClicked();
+	})
+
+	function toggleXClicked(idKey){
+		$("#"+idKey+"Details").slideToggle("slow");
+		$("#"+idKey+"Toggle").find("span").toggleClass("glyphicon-chevron-right",1000,"easeOutShine");
+		$("#"+idKey+"Toggle").find("span").toggleClass("glyphicon-chevron-down",1000,"easeOutShine");
+	}
+
+	function expandXClicked(idKey){
+		$("#"+idKey+"Details").slideDown("slow");
+		$("#"+idKey+"Toggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
+		$("#"+idKey+"Toggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
+	}
+
+	function collapseXClicked(idKey){
+		$("#"+idKey+"Details").slideUp("slow");
+		$("#"+idKey+"Toggle").find("span").addClass("glyphicon-chevron-right",1000,"easeOutShine");
+		$("#"+idKey+"Toggle").find("span").removeClass("glyphicon-chevron-down",1000,"easeOutShine");
+	}
+
 	function expandAllClicked(){
-		$("#workDetails").slideDown("slow");
-		$("#workToggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#workToggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#skillsDetails").slideDown("slow");
-		$("#skillsToggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#skillsToggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#educationDetails").slideDown("slow");
-		$("#educationToggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#educationToggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#strengthDetails").slideDown("slow");
-		$("#strengthToggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#strengthToggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
-		
-		$("#mediaDetails").slideDown("slow");
-		$("#mediaToggle").find("span").removeClass("glyphicon-chevron-right",1000,"easeOutShine");
-		$("#mediaToggle").find("span").addClass("glyphicon-chevron-down",1000,"easeOutShine");
+		expandXClicked("work");
+		expandXClicked("skills");
+		expandXClicked("education");
+	}
+
+	function collapseAllClicked(){
+		collapseXClicked("work");
+		collapseXClicked("skills");
+		collapseXClicked("education");
 	}
 
 	function getUrlVars(){

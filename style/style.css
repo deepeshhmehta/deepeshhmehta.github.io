@@ -2,7 +2,15 @@
 body{
 	/*background-color: BLACK !important;*/
 	background: url("../assets/wallpaper.png");
+	overflow-y: hidden;
 }
+
+@media only screen and (max-width: 1000px) {
+  body {
+    overflow-y: auto;
+  }
+}
+
 
 div.container{
 	margin: 2%;
@@ -39,12 +47,19 @@ a.width-80{
 	width:80%;
 }
 
+a.width-90{
+	width:90%;
+}
+
 div.scroll{
 	border-radius: 25px;
 	margin-top:2%;
 	/*height: 90%;*/
+	max-height: 75%;
 	overflow-y: auto;
 }
+div.scroll::-webkit-scrollbar { 
+} 
 
 p.justified{
 	text-align: justify;
@@ -76,6 +91,7 @@ table{
 div.data{
 	margin-top:2%;
 	margin-bottom:2%;
+	padding: 2%;
 	display: none;
 	/*background-color: rgba(65,64,64,0.9);*/
 	border: 1px solid rgba(65,64,64,0.9);
